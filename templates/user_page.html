@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,10 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="/static/css/clean-blog.min.css" rel="stylesheet">
 
-<style>
-
-        <!--
-        -->
+    <style>
         #mainNav {
             border-bottom: 1px solid #ecf0f1;
             background: transparent;
@@ -31,16 +30,18 @@
             color: #343a40;
         }
 
-        #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+        #mainNav .navbar-brand:focus,
+        #mainNav .navbar-brand:hover {
             color: #0085A1;
         }
 
-        #mainNav .navbar-nav > li.nav-item > a {
+        #mainNav .navbar-nav>li.nav-item>a {
             padding: 10px 20px;
             color: #343a40;
         }
 
-        #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
+        #mainNav .navbar-nav>li.nav-item>a:focus,
+        #mainNav .navbar-nav>li.nav-item>a:hover {
             color: #0085A1;
 
         }
@@ -141,7 +142,7 @@
         }
 
         /* change-chanle */
-        .nav-tabs > li > a {
+        .nav-tabs>li>a {
             position: relative;
             display: block;
             padding: 10px 15px;
@@ -155,7 +156,8 @@
             border-right: 1px solid #ddd;
         }
 
-        .nav-tabs > li > a:focus, .nav-tabs > li > a:hover {
+        .nav-tabs>li>a:focus,
+        .nav-tabs>li>a:hover {
             color: #555;
             cursor: default;
             background-color: #eee;
@@ -216,7 +218,8 @@
             position: relative;
         }
 
-        .info-more i:hover, .info-more i:focus {
+        .info-more i:hover,
+        .info-more i:focus {
             color: #e74c3c;
             opacity: 0;
             animation: fadeIn 0.5s infinite linear alternate-reverse;
@@ -224,13 +227,13 @@
 
         @keyframes fadeIn {
 
-        .collection-line {
-            opacity: 0;
-        }
+            .collection-line {
+                opacity: 0;
+            }
 
-        to {
-            opacity: 1;
-        }
+            to {
+                opacity: 1;
+            }
 
         }
 
@@ -295,8 +298,27 @@
             color: red;
         }
 
+        .edit-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .cancel-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s;
+        }
+        .cancel-btn:hover {
+            background-color: #f5f5f5;
+            color: #333;
+        }
     </style>
 </head>
+
 <body>
     <!-- 导航栏 Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -358,7 +380,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <button class="btn-info c-2" id="btn-name">
-                                    <i class="fa fa-pencil-square-0" aria-hidden="true">编辑</i>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true">编辑</i>
                                 </button>
                             </div>
                         </div>
@@ -371,7 +393,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <button class="btn-info c-2" id="btn-name">
-                                    <i class="fa fa-pencil-square-0" aria-hidden="true">编辑</i>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true">编辑</i>
                                 </button>
                             </div>
                         </div>
@@ -384,20 +406,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <button class="btn-info c-2" id="btn-name">
-                                    <i class="fa fa-pencil-square-0" aria-hidden="true">编辑</i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <input value="{{ user.password }}" id="p-data" style="display: none;">
-                        <div class="row">
-                            <div class="col-lg-8 c-1">
-                                <span>密码：</span>
-                                <span class="nkname">{{ user.password }}</span>
-                            </div>
-                            <div class="col-lg-4">
-                                <button class="btn-info c-2" id="btn-name">
-                                    <i class="fa fa-pencil-square-0" aria-hidden="true">编辑</i>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true">编辑</i>
                                 </button>
                             </div>
                         </div>
@@ -410,13 +419,15 @@
                             </div>
                             <div class="col-lg-4">
                                 <button class="btn-info c-2" id="btn-name">
-                                    <i class="fa fa-pencil-square-0" aria-hidden="true">编辑</i>
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true">编辑</i>
                                 </button>
                             </div>
                         </div>
                     </div>
+
                     <!-- 收藏 -->
                     <div class="collection">
+
                         {% for house in collect_house_list %}
                         <div class="row collection-line" id="collect">
                             <span class="collect_off" id="{{ house.id }}">取消收藏</span>
@@ -427,10 +438,10 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-8 col-md-6 mx-auto">
+                            <div class="col-lg-6 col-md-6 mx-auto">
                                 <div class="collection-line-info">
                                     <div>
-                                        <span class="attribute-text">房源地址</span>
+                                        <span class="attribute-text">房源地址：</span>
                                         &nbsp;
                                         <span class="info-text">{{ house.address }}</span>
                                     </div>
@@ -458,7 +469,7 @@
                             </div>
                             <div class="col-lg-2 col-md-2 mx-auto" style="height: 100px; margin-top: 40px;">
                                 <div class="info-more"
-                                        style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                                    style="width: 100%; height: 100%; position: relative; overflow: hidden;">
                                     <span><a href="/house/{{ house.id }}"
                                             style="position: absolute; top: -30px; left: -30px; height: 20px;">
                                             <i class="fa fa-arrow-right" aria-hidden="true"></i></a></span>
@@ -470,10 +481,10 @@
                 </div>
 
                 <!-- 浏览记录 -->
-                 <div class="col-lg-4 col-md-4 mx-auto detail-body">
+                <div class="col-lg-4 col-md-4 mx-auto detail-body">
                     <div class="row browse-record">
                         <div class="col-lg-10 col-md-10 mx-auto">
-                            <h3 style="margin: 20px 0 15px;">浏览记录</h3>
+                            <h3 style="margin: 20px 0  15px;">浏览记录</h3>
                         </div>
                         <div class="col-lg-10 col-md-10 mx-auto del-btn">
                             <span id="del">清空浏览记录</span>
@@ -485,7 +496,7 @@
                                 <div class="course">
                                     <div>
                                         <a href="/house/{{ house.id }}">
-                                            <img class="img-fluid img-box" src="/static/img/house-bg1" alt="">
+                                            <img class="img-fluid img-box" src="/static/img/house-bg1.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="course-info">
@@ -501,7 +512,7 @@
                             {% endfor %}
                         </div>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     </header>
@@ -518,304 +529,360 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
+
     <script src="/static/vendor/jquery/jquery.min.js"></script>
     <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="/static/js/clean-blog.min.js"></script>
-    <script src="/static/vendor/jquery/jquery.cookies.js"></script>
+    <script src="/static/vendor/jquery/jquery.cookie.js"></script>
 
     <!-- change chanle -->
-     <script>
+    <script>
 
         //删除浏览记录
-        $("#del").on('click', function(){
+        $("#del").on('click', function () {
             var $user_name = $.cookie('name');
             var $span = $(this);
-            if($user_name) {
+            if ($user_name) {
                 $.ajax({
-                    url:"/del_record",
-                    type:'post',
+                    url: "/del_record",
+                    type: 'post',
                     data:{
-                        user_name:$user_name
+                        user_name: $user_name
                     },
-                    success: function (resp){
-                        if(resp['valid'] == '1') {
+                    success: function (resp) {
+                        if (resp["valid"] == '1') {
                             $span.parent().next().remove();
-                            alert(resp['msg']);
-                        }else{
-                            alert(resp['msg']);
+                            alert(resp["msg"])
+                        } else {
+                            alert(resp["msg"])
                         }
                     }
                 })
-            }else{
-                alert('您还没有登录！')
+            } else {
+                alert('您还没有登录！');
             }
         });
 
         //取消收藏
-        $(".collect_off").on('click', function(){
+        $(".collect_off").on('click', function () {
             var hid = this.id;
             var name = $.cookie('name');
             var $span = $(this);
             if (name) {
                 $.ajax({
-                    url:"/collect_off",
-                    type:'post',
-                    data:{
-                        house_id:hid,
+                    url: "/collect_off",
+                    type: 'post',
+                    data: {
+                        house_id: hid,
                         user_name: name,
                     },
-                    dataType:'json',
-                    success: function (resp){
-                        if(resp['valid'] == '1') {
-                            alert(resp['msg']);
+                    dataType: 'json',
+                    success: function (resp) {
+                        if (resp["valid"] == '1') {
+                            alert(resp["msg"]);
                             $span.parent().remove();
-                        }else{
-                            alert(resp['msg']);
+                        } else {
+                            alert(resp["msg"]);
                         }
                     }
                 })
-            }else{
+            } else {
                 alert('您还没有登录！')
             }
         });
 
         //登出功能
-        $(".logout").on('click', function(){
+        $("#logout").on('click', function () {
             $.ajax({
-                url:"/logout",
+                url: '/logout',
                 type:'get',
-                dataType:'json',
-                success: function (res){
-                    if(resp['valid'] == '1') {
-                        alert(resp['msg']);
+                dataType: 'json',
+                success: function (res) {
+                    if (res["valid"] == '1') {
+                        alert(res["msg"]);
                         window.location.href = '/';
-                    }else{
-                        alert(res['msg']);
+                    } else {
+                        alert(res["msg"]);
                     }
-                }
+                } 
             })
         });
 
-        $("chanle1").on('click', function(){
+        $(".chanle1").on('click', function () {
             $('.user-info').show();
             $('.collection').hide();
-            if($('chanle1').hasClass('action')){
-                $('chanle1').hasClass('action');
+            if ($('.chanle1').hasClass('action')) {
+                $('.chanle1').removeClass('action');
             }
-            $('chanle1').addClass('action');
-            $('chanle2').removeClass('action');
+            $(".chanle1").addClass('action');
+            $(".chanle2").removeClass('action');
         });
-        $("chanle2").on('click', function(){
+        $(".chanle2").on('click', function () {
             $('.user-info').hide();
             $('.collection').show();
-            $('chanle1').removeClass('action');
-            $('chanle2').addClass('action');
+            $(".chanle1").removeClass('action');
+            $(".chanle2").addClass('action')
         });
 
-        //修改用户昵称
-        
-        //标志位
+        // ================= 修改用户信息功能 =================
+        // 辅助函数：创建取消按钮
+        function createCancelBtn(cancelCallback) {
+            const $cancelBtn = $('<button class="cancel-btn"><i class="iconfont">&#xeb8c;</i> 取消</button>');
+            $cancelBtn.on('click', function(e) {
+                e.stopPropagation();
+                cancelCallback();
+            });
+            return $cancelBtn;
+        }
+
+        // 1. 修改用户昵称
         var name_option = 1;
-        //获取原来的名字
-        var y_name = $('#n-data').val();
-        $('#btn-name').on('click', function(){
-            if(name_option == 1){
-                $('.nkname').html('<input id="nkname" type="text" requierd placeholder="6-15位字母或数字">');
-                $('.nkname').focus;
-                $('#btn-name i').text(' 提交');
+        var original_name = $('#n-data').val();
+        
+        $("#btn-name").on('click', function() {
+            if (name_option == 1) {
+                // 进入编辑模式
+                const currentName = $('.nkname').text().trim();
+                const $editContainer = $('<div class="edit-container"></div>');
+                $editContainer.append(
+                    `<input id="nkname" type="text" required 
+                            value="${currentName}"
+                            placeholder="6-15位字母或数字">`
+                );
+                
+                $('.nkname').empty().append($editContainer);
+                createCancelBtn(function() {
+                    $('.nkname').text(original_name);
+                    $("#btn-name i").text(' 编辑');
+                    name_option = 1;
+                }).appendTo($editContainer);
+                
+                $('#nkname').focus();
+                $("#btn-name i").text(' 提交');
                 name_option = 0;
             } else {
-                var j_data = {};
-                var v_nkname = $('#nkname'),val();
-                if(5 < v_nkname.length < 16) {
-                    if(/[\u4e00-\u9fa5|a-zA-Z0-9]+$/.test(v_nkname)) {
-                        j_data['name'] = v_nkname;
-                        j_data['y_name'] = y_name
-                    } else {
-                        alert('用户名需要6-15位字母或数字');
-                        $('.nkname').html('<input id="nkname type="text" required placeholder="6-15位字母或数字">');
-                        $('#nkname').focus;
-                        return
-                    }
+                // 提交修改
+                const newName = $('#nkname').val().trim();
+                if (newName.length < 6 || newName.length > 15) {
+                    alert('用户名需要6-15位');
+                    return;
+                }
+                if (!/^[\w\u4e00-\u9fa5]+$/.test(newName)) {
+                    alert('用户名只允许字母、数字、中文和下划线');
+                    return;
                 }
 
                 $.ajax({
-                    url: "http://127.0.0.1:5000/modify/userinfo/name",
-                    type: "post",
+                    url: "/modify/userinfo/name",
+                    type: 'post',
                     dataType: 'json',
-                    data: j_data,
+                    data: { 
+                        name: newName,
+                        y_name: original_name
+                    },
                     success: function(data) {
-                        if(data['ok'] == '1') {
-                            $('#nkname').html(v_nkname);
+                        if (data.ok == '1') {
+                            alert('修改成功');
+                            $('.nkname').html(newName);
                             $('#btn-name i').text(' 编辑');
-                            $('#n-data').att('value', v_nkname);
-                            window.location.href = '/user/' + v_nkname
-                        }else{
-                            alert('修改失败，请重试');
-                            $('#nkname').html(y_name);
-                            $('#btn-name i').text(' 编辑');
+                            $('#n-data').val(newName);
+                            original_name = newName;
+                            name_option = 1;
+                            window.location.href = '/user/' + newName;
+                        } else {
+                            alert(data.msg || '修改失败');
+                            $('.nkname').html(original_name);
                         }
                     },
                     error: function() {
-                        alert('修改失败，请重试');
-                        $('#nkname').html(y_name);
-                        $('#btn-name i').text(' 编辑');
+                        alert('网络错误，请重试');
+                        $('.nkname').html(original_name);
                     }
                 });
             }
         });
-        //addr_option
+
+        // 2. 修改地址
         var addr_option = 1;
-        var y_name = $('#n-data').val();
-        var y_addr = $('#a-data').val();
-        $("#btn-addr").on('click', function(){
-            if(addr_option == 1){
-                $('.nkaddr').html('<input id="nkaddr type="text" required placeholder="6-15位中文、字母或数字">');
-                $('#nkaddr').focus;
-                $('#btn-addr i').text(' 提交');
-            }else{
-                var j_data = {};
-                var v_nkaddr = $('#nkaddr').val();
-                if(5 < v_nkaddr.length < 16){
-                    if(/[\u4e00-\u9fa5|a-zA-Z0-9]+$/.test(v_nkname)){
-                        j_data['addr'] = v_nkaddr;
-                        j_data['y_name'] = y_name;
-                    }else{
-                        alert('用户名需要6-15位字母或数字');
-                        $('.nkaddr').html('<input id="nkaddr type="text" required placeholder="6-15位字母或数字">');
-                        $('#nkaddr').focus;
-                        return
-                    }
+        var original_addr = $('#a-data').val();
+        $("#btn-addr").on('click', function() {
+            if (addr_option == 1) {
+                // 进入编辑模式
+                const currentAddr = $('.nkaddr').text().trim();
+                const $editContainer = $('<div class="edit-container"></div>');
+                $editContainer.append(
+                    `<input id="nkaddr" type="text" required 
+                            value="${currentAddr}"
+                            placeholder="1-30位中文、字母或数字">`
+                );
+                
+                $('.nkaddr').empty().append($editContainer);
+                createCancelBtn(function() {
+                    $('.nkaddr').text(original_addr);
+                    $("#btn-addr i").text(' 编辑');
+                    addr_option = 1;
+                }).appendTo($editContainer);
+                
+                $('#nkaddr').focus();
+                $("#btn-addr i").text(' 提交');
+                addr_option = 0;
+            } else {
+                // 提交修改
+                const newAddr = $('#nkaddr').val().trim();
+                if (newAddr.length < 1 || newAddr.length > 30) {
+                    alert('地址需要1-30位');
+                    return;
                 }
 
                 $.ajax({
-                    url: "http://127.0.0.1:5000/modify/userinfo/addr",
-                    type: "post",
+                    url: "/modify/userinfo/addr",
+                    type: 'post',
                     dataType: 'json',
-                    data: j_data,
+                    data: { 
+                        addr: newAddr,
+                        y_name: $('#n-data').val() 
+                    },
                     success: function(data) {
-                        if(data['ok'] == '1') {
-                            $('#nkaddr').html(v_nkaddr);
-                            $('#btn-addr i').text(' 编辑');
-                            $('#a-data').att('value', v_nkaddr);
-                        }else{
-                            alert('修改失败，请重试');
-                            $('#nkaddr').html(y_addr);
-                            $('#btn-addr i').text(' 编辑');
+                        if (data.ok == '1') {
+                            alert('修改成功');
+                            $('.nkaddr').html(newAddr);
+                            $("#btn-addr i").text(' 编辑');
+                            $("#a-data").val(newAddr);
+                            original_addr = newAddr;
+                            addr_option = 1;
+                        } else {
+                            alert(data.msg || '修改失败');
                         }
                     },
                     error: function() {
-                        alert('修改失败，请重试');
-                        $('#nkaddr').html(y_addr);
-                        $('#btn-pd i').text(' 编辑');
+                        alert('网络错误，请重试');
+                        $('.nkaddr').html(original_addr);
                     }
                 });
             }
         });
-        //pd_option
+
+        // 3. 修改密码
         var pd_option = 1;
-        var y_name = $('#n-data').val();
-        var y_pd = $('#p-data').val();
-        $("#btn-pd").on('click', function(){
-            if(pd_option == 1){
-                $('.nkpd').html('<input id="nkpd type="text" required placeholder="6-15位中文、字母或数字">');
-                $('#nkpd').focus;
-                $('#btn-pd i').text(' 提交');
-                pd_option == 0;
-            }else{
-                var j_data = {};
-                var v_nkpd = $('#nkpd').val();
-                if(5 < v_nkpd.length < 16){
-                    if(/[a-zA-Z0-9]+$/.test(v_nkpd)){
-                        j_data['pd'] = v_nkpd;
-                        j_data['y_name'] = y_name;
-                    }else{
-                        alert('用户名需要6-15位字母或数字');
-                        $('.nkpd').html('<input id="nkpd type="text" required placeholder="6-15位字母或数字">');
-                        $('#nkpd').focus;
-                        return
-                    }
+        $("#btn-pd").on('click', function() {
+            if (pd_option == 1) {
+                // 进入编辑模式
+                const $editContainer = $('<div class="edit-container"></div>');
+                $editContainer.append(
+                    `<input id="nkpd" type="password" required 
+                            placeholder="6-15位字母或数字">`
+                );
+                
+                $('.nkpd').empty().append($editContainer);
+                createCancelBtn(function() {
+                    $('.nkpd').text('********');
+                    $("#btn-pd i").text(' 编辑');
+                    pd_option = 1;
+                }).appendTo($editContainer);
+                
+                $('#nkpd').focus();
+                $("#btn-pd i").text(' 提交');
+                pd_option = 0;
+            } else {
+                // 提交修改
+                const newPd = $('#nkpd').val().trim();
+                if (newPd.length < 6 || newPd.length > 15) {
+                    alert('密码需要6-15位');
+                    return;
+                }
+                if (!/^[a-zA-Z0-9]+$/.test(newPd)) {
+                    alert('密码只能包含字母和数字');
+                    return;
                 }
 
                 $.ajax({
-                    url: "http://127.0.0.1:5000/modify/userinfo/pd",
-                    type: "post",
+                    url: "/modify/userinfo/pd",
+                    type: 'post',
                     dataType: 'json',
-                    data: j_data,
+                    data: { 
+                        pd: newPd,
+                        y_name: $('#n-data').val() 
+                    },
                     success: function(data) {
-                        if(data['ok']) {
-                            alert('修改成功')
-                            pd_option =1;
-                            $('#nkpd').html(v_nkpd);
-                            $('#btn-pd i').text(' 编辑');
-                            $('#p-data').att('value', v_nkpd);
-                        }else{
-                            alert('修改失败，请重试');
-                            $('#nkpd').html(y_pd);
-                            $('#btn-pd i').text(' 编辑');
+                        if (data.ok == '1') {
+                            alert('修改成功');
+                            $('.nkpd').text('********');
+                            $("#btn-pd i").text(' 编辑');
+                            pd_option = 1;
+                        } else {
+                            alert(data.msg || '修改失败');
                         }
                     },
                     error: function() {
-                        alert('修改失败，请重试');
-                        $('#nkpd').html(y_pd);
-                        $('#btn-pd i').text(' 编辑');
+                        alert('网络错误，请重试');
+                        $('.nkpd').text('********');
                     }
                 });
             }
         });
-        //email_option
+
+        // 4. 修改邮箱
         var email_option = 1;
-        var y_name = $('#n-data').val();
-        var y_email = $('#e-data').val();
-        $("#btn-email").on('click', function(){
-            if(email_option == 1){
-                $('.nkemail').html('<input id="nkemail type="text" required placeholder="6-15位中文、字母或数字">');
-                $('#nkemail').focus;
-                $('#btn-email i').text(' 提交');
-                email_option == 0;
-            }else{
-                var j_data = {};
-                var v_nkemail = $('#nkemail').val();
-                if(5 < v_nkemail.length < 16){
-                    if(v_nkemail.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)){
-                        j_data['email'] = v_nkemail;
-                        j_data['y_name'] = y_name;
-                    }else{
-                        alert('邮箱格式错误！');
-                        $('.nkemail').html('<input id="nkemail type="text" required placeholder="6-15位字母或数字">');
-                        $('#nkemail').focus;
-                        return
-                    }
+        var original_email = $('#e-data').val();
+        $("#btn-email").on('click', function() {
+            if (email_option == 1) {
+                // 进入编辑模式
+                const currentEmail = $('.nkemail').text().trim();
+                const $editContainer = $('<div class="edit-container"></div>');
+                $editContainer.append(
+                    `<input id="nkemail" type="email" required 
+                            value="${currentEmail}"
+                            placeholder="请输入有效邮箱">`
+                );
+                
+                $('.nkemail').empty().append($editContainer);
+                createCancelBtn(function() {
+                    $('.nkemail').text(original_email);
+                    $("#btn-email i").text(' 编辑');
+                    email_option = 1;
+                }).appendTo($editContainer);
+                
+                $('#nkemail').focus();
+                $("#btn-email i").text(' 提交');
+                email_option = 0;
+            } else {
+                // 提交修改
+                const newEmail = $('#nkemail').val().trim();
+                if (!/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/.test(newEmail)) {
+                    alert('邮箱格式错误！');
+                    return;
                 }
 
                 $.ajax({
-                    url: "http://127.0.0.1:5000/modify/userinfo/email",
-                    type: "post",
+                    url: "/modify/userinfo/email",
+                    type: 'post',
                     dataType: 'json',
-                    data: j_data,
+                    data: { 
+                        email: newEmail,
+                        y_name: $('#n-data').val() 
+                    },
                     success: function(data) {
-                        if(data['ok']) {
-                            alert('修改成功')
-                            email_option =1;
-                            $('#nkemail').html(v_nkemail);
-                            $('#btn-email i').text(' 编辑');
-                            $('#e-data').att('value', v_nkemail);
-                        }else{
-                            alert('修改失败，请重试');
-                            $('#nkemail').html(y_email);
-                            $('#btn-email i').text(' 编辑');
+                        if (data.ok == '1') {
+                            alert('修改成功');
+                            $('.nkemail').html(newEmail);
+                            $("#btn-email i").text(' 编辑');
+                            $("#e-data").val(newEmail);
+                            original_email = newEmail;
+                            email_option = 1;
+                        } else {
+                            alert(data.msg || '修改失败');
                         }
                     },
                     error: function() {
-                        alert('修改失败，请重试');
-                        $('#nkemail').html(y_email);
-                        $('#btn-email i').text(' 编辑');
+                        alert('网络错误，请重试');
+                        $('.nkemail').html(original_email);
                     }
                 });
             }
         });
-     </script>
+    </script>
 </body>
+
 </html>
